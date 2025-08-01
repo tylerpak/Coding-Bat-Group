@@ -1,2 +1,127 @@
 public class Wyson {
+    public static void main(String[] args) {
+        System.out.println(missingChar("kitten", 1));
+    }
+
+    //Warmup-1
+    public boolean sleepIn(boolean weekday, boolean vacation) {
+        if (!weekday) {
+            return true;
+        } else if (weekday && vacation) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+        if (aSmile && bSmile) {
+            return true;
+        } else if (!aSmile && !bSmile){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public int sumDouble(int a, int b) {
+        if (a != b) {
+            return a + b;
+        } else {
+            return (a + b) * 2;
+        }
+    }
+    public int diff21(int n) {
+        int absoluteDifference = Math.abs(n - 21);
+        if (n > 21) {
+            return absoluteDifference * 2;
+        }
+        return absoluteDifference;
+    }
+    public boolean parrotTrouble(boolean talking, int hour) {
+        if (talking && hour > 20) {
+            return true;
+        } else if (talking && hour < 7){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean makes10(int a, int b) {
+        if ( a == 10 ) {
+            return true;
+        } else if (b == 10) {
+            return true;
+        } else if ((a + b) == 10) {
+            return true;
+        } else
+            return false;
+    }
+    public boolean nearHundred(int n) {
+        int x = Math.abs(100 - n);
+        int y = Math.abs(200 - n);
+        if (x <= 10 || y <= 10) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public static boolean posNeg(int a, int b, boolean negative) {
+        if (negative) {
+            return (a < 0 && b < 0);
+        }
+        else {
+            return ((a < 0 && b > 0) || (a > 0 && b < 0));
+        }
+    }
+
+    public String notString(String str) {
+        if (str.startsWith("not")) {
+            return str;
+        } else return "not " + str;
+    }
+
+    public static String missingChar(String str, int n) {
+        String output = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (i != n) {
+                output = output+str.charAt(i);
+            }
+        } return output;
+    }
+
+    public String reverseStr(String str) {
+        String output = "";
+        for (int i = str.length() - 1; i >= 0 ; i--) {
+                output = output+str.charAt(i);
+        } return output;
+    }
+
+    public String frontBack(String str) {
+        String lastLetter = "";
+        String firstLetter = "";
+        String middleLetters = "";
+
+        if (str.length() <= 1) {
+            return str;
+        }
+
+        lastLetter +=str.charAt(0);
+        firstLetter += str.charAt(str.length()-1);
+        middleLetters += str.substring(1,str.length()-1);
+
+
+        return firstLetter + middleLetters + lastLetter;
+    }
+
+
+    // Strings-1
+    public String helloName(String name) {
+        return "Hello " + name +"!";
+    }
+    public String makeAbba(String a, String b) {
+        return a + b + b + a;
+    }
+    public String makeTags(String tag, String word) {
+        return "<" + tag + ">" + word + "</" + tag + ">";
+    }
 }
+
