@@ -6,6 +6,7 @@ public class Tyler {
 
     }
 
+    // These are String -3 Solutions
     public static boolean equalIsNot(String str) {
         String is = "is";
         String not = "not";
@@ -101,5 +102,60 @@ public class Tyler {
         return is;
     }
 
+    public static int sumDigits(String str) {
+        int sum = 0;
+        for(int i = 0; i < str.length(); i++) {
+            if(Character.isDigit(str.charAt(i))) {
+                sum = sum + Character.getNumericValue(str.charAt(i));
+            }
+        }
+        return sum;
+    }
+
+    public static int countYZ(String str) {
+        int sum = 0;
+        for(int i = 0; i < str.length(); i++ ) {
+            if((Character.toLowerCase(str.charAt(i)) == 'y') || (Character.toLowerCase(str.charAt(i))  == 'z')) {
+                if(i == str.length()-1) {
+                    sum++;
+                }
+                else {
+                    if(!Character.isLetter(str.charAt(i+1))){
+                        sum++;
+                    }
+                }
+            }
+        }
+        return sum;
+    }
+
+    public static boolean gHappy(String str) {
+        boolean result = true;
+        if(str.length() == 2) {
+            if(str.equals("gg")) {
+                return true;
+            }
+        }
+        if(str.length() == 1) {
+            return false;
+        }
+        if(str.length() == 0) {
+            return result;
+        }
+        for(int i = 1; i < str.length()-1; i++) {
+            if(Character.toLowerCase(str.charAt(i)) == 'g') {
+                if((Character.toLowerCase(str.charAt(i-1)) == 'g') || (Character.toLowerCase(str.charAt(i+1)) == 'g')) {
+                    result = true;
+                }
+                else {
+                    result = false;
+                }
+            }
+        }
+        if((Character.toLowerCase(str.charAt(str.length()-1)) == 'g') || (Character.toLowerCase(str.charAt(str.length()-2)) == 'g')) {
+            result = true;
+        }
+        return result;
+    }
 
 }
