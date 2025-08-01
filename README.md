@@ -1,3 +1,5 @@
+My new change to doc
+
 HOW TO USE:
 
 Create a class file in src with your name and use that file to write your solutions for coding bat problems. 
