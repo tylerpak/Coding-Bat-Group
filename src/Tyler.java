@@ -2,7 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
     public static void main(String[] args) {
-        System.out.println(noReplace("isis"));
+        System.out.println(sameEnds("xxxx"));
 
     }
 
@@ -210,6 +210,57 @@ public class Tyler {
             }
         }
         return true;
+    }
+
+    public static int maxBlock (String str) {
+        int output = 0;
+        int counter = 1;
+        char prev = ' ';
+        for(int i = 0; i < str.length(); i++) {
+            if (i == 0) {
+                prev = str.charAt(i);
+            }
+            else {
+                if(str.charAt(i) != prev) {
+                    counter = 1;
+                    prev = str.charAt(i);
+                }
+                else {
+                    counter++;
+                    prev = str.charAt(i);
+                }
+            }
+            if(counter > output) {
+                output = counter;
+            }
+        }
+        return output;
+    }
+
+
+    public static String sameEnds(String string) {
+        String beg;
+        String end;
+        if(string.length()%2 == 0 ) {
+            beg = string.substring(0, string.length()/2);
+            end = string.substring(string.length()/2);
+        }
+        else {
+            beg = string.substring(0, string.length()/2);
+            end = string.substring(string.length()/2 + 1);
+        }
+        String output = "";
+        for(int i = 0; i < end.length(); i++) {
+            if(i == 0) {
+                if(beg.charAt(i) == end.charAt(i)) {
+                    output = output + beg.charAt(i);
+                }
+            }
+            else if(end.contains(beg.substring(0, i))) {
+                output = beg.substring(0,i);
+            }
+        }
+        return output;
     }
 
 }
