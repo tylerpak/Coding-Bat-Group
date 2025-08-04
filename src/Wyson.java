@@ -175,6 +175,39 @@ public class Wyson {
         return false;
     }
 
+    public String delDel(String str) {
+        if (str.length() < 4) {
+            return str;
+        } else if (str.substring(1, 4).equals("del")) {
+            return str.replace("del", "");
+        }
+        return str;
+    }
+
+    public boolean mixStart(String str) {
+        if (str.length() < 3) {
+            return false;
+        } else return (str.substring(1,3).equals("ix"));
+    }
+
+    public String startOz(String str) {
+        if (str.length() < 1) {
+            return "";
+        } else if (str.startsWith("oz")) {
+            return "oz";
+        } else if (str.startsWith("o")) {
+            return "o";
+        } else if (str.substring(1,2).equals("z")) {
+            return "z";
+        } else {
+            return "";
+        }
+    }
+
+    public int intMax(int a, int b, int c) {
+        
+    }
+
 
     // Strings-1
     public String helloName(String name) {
