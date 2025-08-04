@@ -130,32 +130,37 @@ public class Tyler {
     }
 
     public static boolean gHappy(String str) {
-        boolean result = true;
-        if(str.length() == 2) {
-            if(str.equals("gg")) {
+        if(str.length() ==1) {
+            if(Character.toLowerCase(str.charAt(0)) == 'g') {
+                return false;
+            }
+            else {
                 return true;
             }
         }
-        if(str.length() == 1) {
-            return false;
-        }
         if(str.length() == 0) {
-            return result;
+            return true;
         }
-        for(int i = 1; i < str.length()-1; i++) {
+        for(int i =0; i < str.length(); i++) {
             if(Character.toLowerCase(str.charAt(i)) == 'g') {
-                if((Character.toLowerCase(str.charAt(i-1)) == 'g') || (Character.toLowerCase(str.charAt(i+1)) == 'g')) {
-                    result = true;
+                if(i == 0) {
+                    if((Character.toLowerCase(str.charAt(i+1))) != 'g') {
+                        return false;
+                    }
+                }
+                else if(i == str.length() - 1) {
+                    if((Character.toLowerCase(str.charAt(i-1))) != 'g') {
+                        return false;
+                    }
                 }
                 else {
-                    result = false;
+                    if ((Character.toLowerCase(str.charAt(i - 1)) != 'g') && (Character.toLowerCase(str.charAt(i + 1)) != 'g')) {
+                        return false;
+                    }
                 }
             }
         }
-        if((Character.toLowerCase(str.charAt(str.length()-1)) == 'g') || (Character.toLowerCase(str.charAt(str.length()-2)) == 'g')) {
-            result = true;
-        }
-        return result;
+        return true;
     }
 
 }
