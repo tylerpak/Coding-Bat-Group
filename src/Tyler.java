@@ -2,7 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
     public static void main(String[] args) {
-        System.out.println(equalIsNot("This is not"));
+        System.out.println(noReplace("isis"));
 
     }
 
@@ -98,8 +98,57 @@ public class Tyler {
     }
 
     public static String noReplace(String str) {
-        String is = "";
-        return is;
+        String output = "";
+        for(int i = 0 ; i < str.length(); i++) {
+            if(i == 0) {
+                if(str.substring(i, i+ 2).equals("is")) {
+                    if(str.length() > 2) {
+                        if (!Character.isAlphabetic(str.charAt(2))) {
+                            output = output + "is not";
+                            i = i + 1;
+                        }
+                        else {
+                            output = output + str.charAt(i);
+                        }
+                    }
+                    else {
+                        return "is not";
+                    }
+                }
+                else {
+                    output = output + str.charAt(i);
+                }
+            }
+            else if(i < str.length()-2) {
+                if(str.substring(i, i+2).equals("is")) {
+                    if((!Character.isAlphabetic(str.charAt(i-1))) && (!Character.isAlphabetic(str.charAt(i+2)))) {
+                        output = output + "is not";
+                        i = i+1;
+                    }
+                    else {
+                        output = output + str.charAt(i);
+                    }
+                }
+                else {
+                    output = output + str.charAt(i);
+                }
+            }
+            else {
+                if(str.substring(i).equals("is")) {
+                    if(!Character.isAlphabetic(str.charAt(i - 1))) {
+                        output = output + "is not";
+                        i = str.length();
+                    }
+                    else {
+                        output = output + str.charAt(i);
+                    }
+                }
+                else {
+                    output = output + str.charAt(i);
+                }
+            }
+        }
+        return output;
     }
 
     public static int sumDigits(String str) {
