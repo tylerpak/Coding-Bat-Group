@@ -112,6 +112,52 @@ public class Wyson {
         return firstLetter + middleLetters + lastLetter;
     }
 
+    public String front3(String str) {
+        if (str.length() <= 2) {
+            return str + str + str;
+        }
+
+        return str.substring(0,3) + str.substring(0,3) + str.substring(0,3);
+    }
+
+    public String backAround(String str) {
+        String lastChar = String.valueOf(str.charAt(str.length() - 1));
+        return lastChar + str + lastChar;
+    }
+
+    public boolean or35(int n) {
+        if ((n % 5) == 0) {
+            return true;
+        } else if ((n % 3) == 0) {
+            return true;
+        } else return false;
+    }
+
+    public String front22(String str) {
+        if (str.length() < 2) {
+            return str + str + str;
+        } else {
+            String last2Char = str.substring(0,2);
+            return last2Char + str + last2Char;
+        }
+    }
+
+    public boolean startHi(String str) {
+        return str.startsWith("hi");
+    }
+
+    public boolean icyHot(int temp1, int temp2) {
+        if ((temp1 > 100) && (temp2 < 0)) {
+            return true;
+        } else if ((temp1 < 0) && (temp2 > 100)) {
+            return true;
+        } else return false;
+        /* if ((temp1 > 100) && (temp2 < 0)) {
+            return true;
+        } else return (temp1 < 0) && (temp2 > 100);
+         */
+    }
+
 
     // Strings-1
     public String helloName(String name) {
