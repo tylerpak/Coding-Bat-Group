@@ -205,7 +205,13 @@ public class Wyson {
     }
 
     public int intMax(int a, int b, int c) {
-        
+        int[] array = {a, b, c};
+        int maxNum = array[0];
+        for (int num : array) {
+            if (maxNum < num) {
+                maxNum = num;
+            }
+        } return maxNum;
     }
 
 
