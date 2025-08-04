@@ -158,6 +158,23 @@ public class Wyson {
          */
     }
 
+    public boolean in1020(int a, int b) {
+        return (a >= 10 && a <= 20) || (b >= 10 && b <= 20);
+    }
+
+    public boolean hasTeen(int a, int b, int c) {
+        return (a >= 13 && a <= 19) || (b >= 13 && b <= 19) || (c >= 13 && c <= 19);
+    }
+
+    public boolean loneTeen(int a, int b) {
+        if ((a >= 13 && a <= 19) && (b >= 13 && b <= 19)) {
+            return false;
+        } else if ((a >= 13 && a <= 19) || (b >= 13 && b <= 19)) {
+            return true;
+        }
+        return false;
+    }
+
 
     // Strings-1
     public String helloName(String name) {
