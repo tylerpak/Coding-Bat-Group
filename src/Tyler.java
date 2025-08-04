@@ -2,7 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
     public static void main(String[] args) {
-        System.out.println(sameEnds("xxxx"));
+        System.out.println(sameEnds("abxyab"));
 
     }
 
@@ -256,8 +256,9 @@ public class Tyler {
                     output = output + beg.charAt(i);
                 }
             }
-            else if(end.contains(beg.substring(0, i))) {
-                output = beg.substring(0,i);
+            else if(end.contains(beg.substring(0,i))) {
+                String comp = beg.substring(0,i+1);
+                output = beg.substring(0, i+1);
             }
         }
         return output;
