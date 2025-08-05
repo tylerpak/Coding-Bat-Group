@@ -37,3 +37,48 @@ public static String frontTimes(String str, int n) {
     return builder.toString();
 
 }
+
+/**
+ * Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
+
+ * countXX("abcxx") → 1
+ * countXX("xxx") → 2
+ * countXX("xxxx") → 3
+ */
+public static int countXX(String str) {
+    int count = 0;
+
+    for (int i = 0; i < str.length() - 1; i++) {
+        if (str.charAt(i) == 'x' && str.charAt(i) == str.charAt(i + 1)) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+/**
+ * Given a string, return true if the first instance of "x" in the string is immediately followed by another "x".
+ *
+ *
+ * doubleX("axxbb") → true
+ * doubleX("axaxax") → false
+ * doubleX("xxxxx") → true
+ */
+
+public static boolean doubleX(String str) {
+    if (! str.contains("x")) return false;
+
+    boolean firstXFound = false;
+
+    for (int i = 0; i < str.length() - 1 && !firstXFound; i++) {
+        if (str.charAt(i) == 'x') {
+            firstXFound = true;
+
+            if (str.charAt(i + 1) == 'x') {
+                return true;
+            }
+        }
+    }
+    return false;
+}
