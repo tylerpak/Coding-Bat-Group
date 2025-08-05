@@ -123,3 +123,82 @@ public static String stringSplosion(String str) {
     return builder.toString();
 
 }
+
+/**
+ *
+ Given an array of ints, return the number of 9's in the array.
+ arrayCount9([1, 2, 9]) → 1
+ arrayCount9([1, 9, 9]) → 2
+ arrayCount9([1, 9, 9, 3, 9]) → 3
+ */
+public static int arrayCount9(int[] nums) {
+    int count = 0;
+
+    for (int num : nums) {
+        if (num == 9) {
+            count ++;
+        }
+    }
+
+    return count;
+}
+
+
+/**
+ *
+ Given an array of ints, return true if one of the first 4 elements in the array is a 9. The array length may be less than 4.
+
+
+ arrayFront9([1, 2, 9, 3, 4]) → true
+ arrayFront9([1, 2, 3, 4, 9]) → false
+ arrayFront9([1, 2, 3, 4, 5]) → false
+ */
+public static boolean arrayFront9(int[] nums) {
+
+    int i = 0;
+    boolean foundNine = false;
+
+    if (nums.length == 0 ) return false;
+
+    while (i < nums.length && i < 4 && !foundNine) {
+        if (nums[i] == 9) {
+            foundNine = true;
+        }
+
+        i++;
+    }
+
+    return foundNine;
+}
+
+/**
+ *
+ Suppose the string "yak" is unlucky. Given a string, return a version where all the "yak" are removed, but the "a" can be any char. The "yak" strings will not overlap.
+
+ stringYak("yakpak") → "pak"
+ stringYak("pakyak") → "pak"
+ stringYak("yak123ya") → "123ya"
+
+ */
+public static String stringYak(String str) {
+    return str.replaceAll("yak", "");
+}
+
+/**
+ *
+ Given an array of ints, return the number of times that two 6's are next to each other in the array. Also count instances where the second "6" is actually a 7.
+ array667([6, 6, 2]) → 1
+ array667([6, 6, 2, 6]) → 1
+ array667([6, 7, 2, 6]) → 1
+ */
+public static int array667(int[] nums) {
+    int count = 0;
+
+    for (int i = 0; i < nums.length - 1; i++) {
+        if ((nums[i] == 6 && nums[i+1] == 6) || (nums[i] == 6 && nums[i+1] == 7)) {
+            count++;
+        }
+    }
+
+    return count;
+}
