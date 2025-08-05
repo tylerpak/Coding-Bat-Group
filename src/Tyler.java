@@ -2,7 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
     public static void main(String[] args) {
-        System.out.println(sameEnds("xxxx"));
+        System.out.println(sumNumbers("ab11ds33"));
 
     }
 
@@ -250,17 +250,34 @@ public class Tyler {
             end = string.substring(string.length()/2 + 1);
         }
         String output = "";
-        for(int i = 0; i < end.length(); i++) {
-            if(i == 0) {
-                if(beg.charAt(i) == end.charAt(i)) {
-                    output = output + beg.charAt(i);
-                }
-            }
-            else if(end.contains(beg.substring(0, i))) {
-                output = beg.substring(0,i);
+        for(int i =0; i < beg.length(); i++) {
+            if(end.contains(beg.substring(0, i+1))) {
+                output = beg.substring(0, i+1);
             }
         }
         return output;
     }
+
+    public static int sumNumbers(String str) {
+        int output = 0;
+        for(int i =0; i < str.length(); i++) {
+            String sum = "";
+            if(Character.isDigit(str.charAt(i))) {
+                    for (int j = i; j < str.length(); j++) {
+                        if (Character.isDigit(str.charAt(j))) {
+                            sum += str.charAt(j);
+                        } else {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+            if(sum.length()>0) {
+                output += Integer.parseInt(sum);
+            }
+        }
+        return output;
+    }
+
 
 }
