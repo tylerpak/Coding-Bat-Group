@@ -265,3 +265,28 @@ public static String stringX(String str) {
 
     return builder.toString();
 }
+
+/**
+ *
+ Given an array of ints, return true if it contains a 2, 7, 1 pattern: a value, followed by the value plus 5, followed by the value minus 1. Additionally the 271 counts even if the "1" differs by 2 or less from the correct value.
+
+
+ has271([1, 2, 7, 1]) → true
+ has271([1, 2, 8, 1]) → false
+ has271([2, 7, 1]) → true
+ */
+public static boolean has271(int[] nums) {
+
+    for (int i = 0; i < nums.length - 1; i++) {
+        int value = nums[i];
+
+        int lowerBound = Math.abs(value - 1) - 2;
+        int upperBound = Math.abs(value - 1) + 2;
+        if (nums[i + 1] == value + 5 && nums[i + 2] >= lowerBound && nums[i + 2] <= upperBound ){
+            return true;
+        }
+    }
+
+    return false;
+
+}
