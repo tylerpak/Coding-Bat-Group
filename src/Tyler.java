@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
@@ -277,6 +280,24 @@ public class Tyler {
             }
         }
         return output;
+    }
+
+
+    // These are Functional-1 problems
+
+    public static List<Integer> doubling(List<Integer> nums) {
+        nums.replaceAll(n -> n*2);
+        return nums;
+    }
+
+    public static List<Integer> square(List<Integer> nums) {
+        nums.replaceAll(n -> n*n);
+        return nums;
+    }
+
+    public static List<String> addStar(List<String> strings) {
+        strings.replaceAll(n -> n + "*");
+        return strings;
     }
 
 
