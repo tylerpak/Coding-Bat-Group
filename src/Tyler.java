@@ -439,5 +439,28 @@ public class Tyler {
     }
 
 
+    public static Map<String, String> mapAB2(Map<String, String> map) {
+        if(map.containsKey("a") && map.containsKey("b")) {
+            if(map.get("a").equals(map.get("b"))) {
+                map.remove("a");
+                map.remove("b");
+            }
+        }
+        return map;
+    }
+
+    public static Map<String, String> mapAB3(Map<String, String> map) {
+        if(!(map.containsKey("a") && map.containsKey("b"))) {
+            if(map.containsKey("a")) {
+                map.put("b", map.get("a"));
+            }
+            else {
+                map.put("a", map.get("b"));
+            }
+        }
+        return map;
+    }
+
+
 
 }
