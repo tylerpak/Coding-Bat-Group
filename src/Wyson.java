@@ -214,6 +214,72 @@ public class Wyson {
         } return maxNum;
     }
 
+    public int close10(int a, int b) {
+        int closeA = Math.abs(a - 10);
+        int closeB = Math.abs(b - 10);
+
+        if (closeA > closeB) {
+            return b;
+        } else if (closeB > closeA) {
+            return a;
+        } else return 0;
+    }
+
+    public boolean in3050(int a, int b) {
+        boolean b1 = (a >= 30) && (a <= 40) && (b >= 30) && (b <= 40);
+        boolean b2 = (a >= 40) && (a <= 50) && (b >= 40) && (b <= 50);
+
+        return b1 || b2;
+    }
+
+    public int max1020(int a, int b) {
+        boolean b1 = (a >= 10) && (a <= 20) && (b >= 10) && (b <= 20);
+        boolean b2 = (a >= 10) && (a <= 20);
+        boolean b3 = (b >= 10) && (b <= 20);
+
+        if (b1 && a > b) {
+            return a;
+        } else if (b1 && a < b) {
+            return b;
+        } else if (b2) {
+            return a;
+        } else if (b3) {
+            return b;
+        } else return 0;
+    }
+
+    public boolean stringE(String str) {
+        char itIsE = 'e';
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == itIsE) {
+                count++;
+            }
+        }
+        if (str.isEmpty()) {
+            return false;
+        } else if (count > 3) {
+            return false;
+        } else if (str.contains("e")) {
+            return true;
+        } else return false;
+    }
+
+    public boolean lastDigit(int a, int b) {
+        int modA = a % 10;
+        int modB = b % 10;
+
+        return (modA == modB);
+    }
+
+    public String endUp(String str) {
+        int beginIndex = str.length() - 3;
+
+        if (str.length() < 3) {
+            return str.toUpperCase();
+        } else return str.substring(0, beginIndex) + str.substring(beginIndex).toUpperCase();
+    }
 
     // Strings-1
     public String helloName(String name) {
