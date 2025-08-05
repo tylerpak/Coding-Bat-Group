@@ -381,7 +381,7 @@ public class Tyler {
         return nums.stream()
                 .map(n -> (n * n) + 10)
                 .filter(n -> (n%10 != 5) && (n%10 != 6))
-                .collect((Collectors.toList()))
+                .collect((Collectors.toList()));
     }
 
     //Map-1 Problems
