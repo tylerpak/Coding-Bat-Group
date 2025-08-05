@@ -290,3 +290,20 @@ public static boolean has271(int[] nums) {
     return false;
 
 }
+
+public static String altPairs(String str) {
+    StringBuilder builder = new StringBuilder();
+
+    for (int i = 0; i < str.length(); i = i + 4) {
+        char firstChar = str.charAt(i);
+        builder.append(firstChar);
+
+        if (i != str.length() - 1) {
+            char secondChar = str.charAt(i + 1);
+            builder.append(secondChar);
+        }
+
+    }
+
+    return builder.toString();
+}
