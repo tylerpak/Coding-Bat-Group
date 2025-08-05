@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -369,17 +370,38 @@ public class Tyler {
         return strings;
     }
 
-    public List<Integer> two2(List<Integer> nums) {
+    public static List<Integer> two2(List<Integer> nums) {
         return nums.stream()
                 .map(n -> n*2)
                 .filter(n -> n%10 != 2)
                 .collect(Collectors.toList());
     }
 
-    public List<Integer> square56(List<Integer> nums) {
+    public static List<Integer> square56(List<Integer> nums) {
         return nums.stream()
                 .map(n -> (n * n) + 10)
                 .filter(n -> (n%10 != 5) && (n%10 != 6))
                 .collect((Collectors.toList()));
     }
+
+    //Map-1 Problems
+
+    public static Map<String, String> mapBully(Map<String, String> map) {
+        if(map.containsKey("a")) {
+            if (!map.get("a").equals("")) {
+                map.put("b", map.get("a"));
+                map.put("a", "");
+            }
+        }
+        return map;
+    }
+
+    public static Map<String, String> mapShare(Map<String, String> map) {
+        if(map.containsKey("a")) {
+            map.put("b", map.get("a"));
+        }
+        map.remove("c");
+        return map;
+    }
+
 }
