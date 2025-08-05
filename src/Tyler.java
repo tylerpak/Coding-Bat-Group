@@ -1,8 +1,12 @@
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
     public static void main(String[] args) {
-        System.out.println(sameEnds("xxxx"));
+        System.out.println(sumNumbers("ab11ds33"));
 
     }
 
@@ -250,17 +254,190 @@ public class Tyler {
             end = string.substring(string.length()/2 + 1);
         }
         String output = "";
-        for(int i = 0; i < end.length(); i++) {
-            if(i == 0) {
-                if(beg.charAt(i) == end.charAt(i)) {
-                    output = output + beg.charAt(i);
-                }
-            }
-            else if(end.contains(beg.substring(0, i))) {
-                output = beg.substring(0,i);
+        for(int i =0; i < beg.length(); i++) {
+            if(end.contains(beg.substring(0, i+1))) {
+                output = beg.substring(0, i+1);
             }
         }
         return output;
     }
+
+    public static int sumNumbers(String str) {
+        int output = 0;
+        for(int i =0; i < str.length(); i++) {
+            String sum = "";
+            if(Character.isDigit(str.charAt(i))) {
+                    for (int j = i; j < str.length(); j++) {
+                        if (Character.isDigit(str.charAt(j))) {
+                            sum += str.charAt(j);
+                        } else {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+            if(sum.length()>0) {
+                output += Integer.parseInt(sum);
+            }
+        }
+        return output;
+    }
+
+
+    // These are Functional-1 problems
+
+    public static List<Integer> doubling(List<Integer> nums) {
+        nums.replaceAll(n -> n*2);
+        return nums;
+    }
+
+    public static List<Integer> square(List<Integer> nums) {
+        nums.replaceAll(n -> n*n);
+        return nums;
+    }
+
+    public static List<String> addStar(List<String> strings) {
+        strings.replaceAll(n -> n + "*");
+        return strings;
+    }
+
+    public static List<String> copies3(List<String> strings) {
+        strings.replaceAll(n -> {String b = n; n = b + b + b; return n;});
+        return strings;
+    }
+
+    public static List<String> moreY(List<String> strings) {
+        strings.replaceAll(n -> "y" + n + "y");
+        return strings;
+    }
+
+    public static List<Integer> math1(List<Integer> nums) {
+        nums.replaceAll(n -> (n + 1) * 10);
+        return nums;
+    }
+
+    public static List<Integer> rightDigit(List<Integer> nums) {
+        nums.replaceAll(n -> n % 10);
+        return nums;
+    }
+
+    public static List<String> lower(List<String> strings) {
+        strings.replaceAll(n -> n.toLowerCase());
+        return strings;
+    }
+
+    public static List<String> noX(List<String> strings) {
+        strings.replaceAll(n -> n.replaceAll("x", ""));
+        return strings;
+    }
+
+    // Functional 2 problems
+
+    public static List<Integer> noNeg(List<Integer> nums) {
+        nums.removeIf(n -> n < 0);
+        return nums;
+    }
+
+    public static List<Integer> no9(List<Integer> nums) {
+        nums.removeIf(n -> n%10 == 9);
+        return nums;
+    }
+
+    public static List<Integer> noTeen(List<Integer> nums) {
+        nums.removeIf(n -> (n >= 13 && n <= 19));
+        return nums;
+    }
+
+    public static List<String> noZ(List<String> strings) {
+        strings.removeIf(n -> n.contains("z"));
+        return strings;
+    }
+
+    public static List<String> noLong(List<String> strings) {
+        strings.removeIf(n -> n.length() >= 4 );
+        return strings;
+    }
+
+    public static List<String> no34(List<String> strings) {
+        strings.removeIf(n -> (n.length() == 4 || n.length() == 3));
+        return strings;
+    }
+
+    public static List<String> noYY(List<String> strings) {
+        strings.replaceAll(n -> n + "y");
+        strings.removeIf(n -> n.contains("yy"));
+        return strings;
+    }
+
+    public static List<Integer> two2(List<Integer> nums) {
+        return nums.stream()
+                .map(n -> n*2)
+                .filter(n -> n%10 != 2)
+                .collect(Collectors.toList());
+    }
+
+    public static List<Integer> square56(List<Integer> nums) {
+        return nums.stream()
+                .map(n -> (n * n) + 10)
+                .filter(n -> (n%10 != 5) && (n%10 != 6))
+                .collect((Collectors.toList()));
+    }
+
+    //Map-1 Problems
+
+    public static Map<String, String> mapBully(Map<String, String> map) {
+        if(map.containsKey("a")) {
+            if (!map.get("a").equals("")) {
+                map.put("b", map.get("a"));
+                map.put("a", "");
+            }
+        }
+        return map;
+    }
+
+    public static Map<String, String> mapShare(Map<String, String> map) {
+        if(map.containsKey("a")) {
+            map.put("b", map.get("a"));
+        }
+        map.remove("c");
+        return map;
+    }
+
+    public static Map<String, String> mapAB(Map<String, String> map) {
+        if(map.containsKey("a") && map.containsKey("b")) {
+            map.put("ab", map.get("a") + map.get("b"));
+        }
+        return map;
+    }
+
+    public static Map<String, String> topping1(Map<String, String> map) {
+        map.put("bread", "butter");
+        if(map.containsKey("ice cream")) {
+            map.put("ice cream", "cherry");
+        }
+        return map;
+    }
+
+    public static Map<String, String> topping2(Map<String, String> map) {
+        if(map.containsKey("ice cream") && !map.get("ice cream").equals("")) {
+            map.put("yogurt", map.get("ice cream"));
+        }
+        if(map.containsKey("spinach") && !map.get("spinach").equals("")) {
+            map.put("spinach", "nuts");
+        }
+        return map;
+    }
+
+    public static Map<String, String> topping3(Map<String, String> map) {
+        if(map.containsKey("potato") && !map.get("potato").isEmpty()) {
+            map.put("fries", map.get("potato"));
+        }
+        if(map.containsKey("salad") && !map.get("salad").isEmpty()) {
+            map.put("spinach", map.get("salad"));
+        }
+        return map;
+    }
+
+
 
 }
