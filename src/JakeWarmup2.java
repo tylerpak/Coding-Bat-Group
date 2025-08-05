@@ -247,3 +247,21 @@ public static boolean array123(int[] nums) {
 
     return false;
 }
+
+public static String stringX(String str) {
+    StringBuilder builder = new StringBuilder();
+
+    for (int i = 0; i< str.length(); i++) {
+        if (i == 0) {
+            builder.append(str.charAt(i));
+        } else if (i == str.length() - 1) {
+            builder.append(str.charAt(i));
+        } else {
+            if (str.charAt(i) != 'x') {
+                builder.append(str.charAt(i));
+            }
+        }
+    }
+
+    return builder.toString();
+}
