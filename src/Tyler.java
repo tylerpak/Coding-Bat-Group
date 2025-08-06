@@ -477,5 +477,35 @@ public class Tyler {
         return map;
     }
 
+    //recursion-1 problems
+
+    public static int factorial(int n) {
+        if(n <= 1) {
+            return n;
+        }
+        else {
+            return n * factorial(n-1);
+        }
+
+    }
+
+    public static int bunnyEars(int bunnies) {
+        if(bunnies == 0) {
+            return bunnies;
+        }
+        else {
+            return bunnyEars(bunnies-1) + 2;
+        }
+    }
+
+    public int fibonacci(int n) {
+        if(n == 0 || n == 1) {
+            return n;
+        }
+        else {
+            return n - fibonacci(n-1);
+        }
+    }
+
 
 }
