@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
     public static void main(String[] args) {
-        System.out.println(fibonacci(8));
+        System.out.println(countHi("xxhixx"));
 
     }
 
@@ -588,4 +588,33 @@ public class Tyler {
             return countX(str.substring(1));
         }
     }
+
+    public static int countHi(String str) {
+        if(str.length() < 2) {
+            return 0;
+        }
+        else if(str.startsWith("hi")) {
+            return 1 + countHi(str.substring(1));
+        }
+        else {
+            return countHi(str.substring(1));
+        }
+    }
+
+    public static String changeXY(String str) {
+        String output = "";
+        if(str.isEmpty()) {
+            return output;
+        }
+        else if(str.startsWith("x")) {
+            output += 'y';
+            return changeXY(str.substring(1));
+        }
+        else {
+            output += str.charAt(0);
+            return changeXY(str.substring(1));
+        }
+    }
+
+
 }
