@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
     public static void main(String[] args) {
-        System.out.println(sumNumbers("ab11ds33"));
+        System.out.println(fibonacci(8));
 
     }
 
@@ -498,14 +498,94 @@ public class Tyler {
         }
     }
 
-    public int fibonacci(int n) {
+    public static int fibonacci(int n) {
         if(n == 0 || n == 1) {
             return n;
         }
         else {
-            return n - fibonacci(n-1);
+            return fibonacci(n-2) + fibonacci(n-1);
         }
     }
 
+    public static int bunnyEars2(int bunnies) {
+        if(bunnies == 0) {
+            return bunnies;
+        }
+        if(bunnies%2 == 0) {
+            return bunnyEars2(bunnies-1) +3;
+        }
+        else {
+            return bunnyEars2(bunnies-1) +2;
+        }
+    }
 
+    public static int triangle(int rows) {
+        if(rows == 0) {
+            return rows;
+        }
+        else {
+            return rows + triangle(rows-1);
+        }
+    }
+
+    public static int sumDigits(int n) {
+        if(n==0) {
+            return n;
+        }
+        else {
+            return n%10 + sumDigits(n/10);
+        }
+    }
+
+    public static int count7(int n) {
+        return count7Helper(n, 0);
+    }
+
+    public static int count7Helper(int n, int i) {
+        if(n == 0) {
+            return i;
+        }
+        else if (n%10 == 7) {
+            return count7Helper(n/10, i+1);
+        }
+        else {
+            return count7Helper(n/10, i);
+        }
+    }
+
+    public static int count8(int n) {
+        if(n==0) {
+            return 0;
+        }
+        else if(n%100 == 88) {
+            return 2 + count8(n/10);
+        }
+        else if(n%10 == 8) {
+            return 1 + count8(n/10);
+        }
+        else {
+            return count8(n/10);
+        }
+    }
+
+    public static int powerN(int base, int n) {
+        if(n == 1) {
+            return base;
+        }
+        else {
+            return base * powerN(base, n-1);
+        }
+    }
+
+    public static int countX(String str) {
+        if(str.equals("")) {
+            return 0;
+        }
+        else if(str.charAt(0) == 'x'){
+            return 1 + countX(str.substring(1));
+        }
+        else {
+            return countX(str.substring(1));
+        }
+    }
 }
