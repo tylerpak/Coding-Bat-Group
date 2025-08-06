@@ -295,11 +295,119 @@ public class Wyson {
     public String helloName(String name) {
         return "Hello " + name +"!";
     }
+
     public String makeAbba(String a, String b) {
         return a + b + b + a;
     }
+
     public String makeTags(String tag, String word) {
         return "<" + tag + ">" + word + "</" + tag + ">";
     }
+
+    public String extraEnd(String str) {
+        String copyEnd = str.substring(str.length()-2);
+
+        if (str.length() < 2) {
+            return null;
+        } else return copyEnd + copyEnd + copyEnd;
+    }
+
+    public String firstTwo(String str) {
+        if (str.length() < 2) {
+            return str;
+        } else return str.substring(0,2);
+    }
+
+    public String firstHalf(String str) {
+        int half = str.length() % 2;
+        int halfLength = str.length() / 2;
+
+        if (half == 0) {
+            return str.substring(0, halfLength);
+        } else return null;
+    }
+
+    public String withoutEnd(String str) {
+        int lastChar = str.length() - 1;
+
+        if (str.length() < 2) {
+            return str;
+        } else return str.substring(1,lastChar);
+    }
+
+    public String comboString(String a, String b) {
+        int firstStr = a.length();
+        int secondStr = b.length();
+
+        if (firstStr < secondStr) {
+            return a + b + a;
+        } else return b + a + b;
+    }
+
+    public String nonStart(String a, String b) {
+        String newA = a.substring(1);
+        String newB = b.substring(1);
+        return newA + newB;
+    }
+
+    public String left2(String str) {
+        String firstTwo = str.substring(0,2);
+        String restStr = str.substring(2);
+
+        if (str.length() < 2) {
+            return str;
+        } else return restStr + firstTwo;
+    }
+
+    public String right2(String str) {
+        int lastTwo = str.length() - 2;
+        return str.substring(lastTwo) + str.substring(0, lastTwo);
+    }
+
+    public String theEnd(String str, boolean front) {
+        int lastChar = str.length() - 1;
+
+        if (!front) {
+            return str.substring(lastChar);
+        } else return str.substring(0,1);
+    }
+
+    public String withouEnd2(String str) {
+        int lastChar = str.length() - 1 ;
+
+        if (str.isEmpty()) {
+            return str;
+        } else if (str.length() < 2) {
+            return "";
+        } return str.substring(1, lastChar);
+    }
+
+    public String middleTwo(String str) {
+        int middle = str.length() / 2;
+        int middle1 = middle - 1;
+        int middle2 = middle + 1;
+
+        if (str.length() < 2) {
+            return null;
+        } else return str.substring(middle1, middle2);
+    }
+
+    public boolean endsLy(String str) {
+        int lastTwo = str.length() - 2;
+
+        if (str.length() < 2) {
+            return false;
+        } else return str.substring(lastTwo).contains("ly");
+    }
+
+    public String nTwice(String str, int n) {
+        int lastN = str.length() - n;
+
+        if (n == 0) {
+            return "";
+        } else return str.substring(0, n) + str.substring(lastN);
+    }
+
+
 }
 
