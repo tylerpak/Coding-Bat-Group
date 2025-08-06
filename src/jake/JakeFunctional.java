@@ -1,5 +1,8 @@
 package jake;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class JakeFunctional {
     // Given a list of integers, return a list where each integer is multiplied by 2.
     public static List<Integer> doubling(List<Integer> nums) {
