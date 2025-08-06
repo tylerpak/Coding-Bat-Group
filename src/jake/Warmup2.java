@@ -1,6 +1,6 @@
 package jake;
 
-public class JakeWarmup2 {
+public class Warmup2 {
 
 
     /**
