@@ -54,5 +54,12 @@ public class Recursion1 {
         return triangle(rows - 1) + rows;
     }
 
+    public static int sumDigits(int n) {
+        if (n / 10 == 0) {
+            return n % 10;
+        }
+        return n % 10 + sumDigits(n / 10);
+    }
+
 
 }
