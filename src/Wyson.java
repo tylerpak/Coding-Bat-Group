@@ -281,6 +281,16 @@ public class Wyson {
         } else return str.substring(0, beginIndex) + str.substring(beginIndex).toUpperCase();
     }
 
+    public String everyNth(String str, int n) {
+        String output = "";
+
+        for (int i = 0; i < str.length(); i += n) {
+            output = output+str.charAt(i);
+        }
+        return output;
+    }
+
+
     // Strings-1
     public String helloName(String name) {
         return "Hello " + name +"!";
