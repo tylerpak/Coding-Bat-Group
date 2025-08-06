@@ -1,6 +1,6 @@
 package jake;
 
-public class JakeWarmup1 {
+public class Warmup1 {
     public static String delDel(String string) {
 
         if (string.isBlank()) {
