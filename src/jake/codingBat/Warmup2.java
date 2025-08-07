@@ -1,4 +1,4 @@
-package jake;
+package jake.codingBat;
 
 public class Warmup2 {
 

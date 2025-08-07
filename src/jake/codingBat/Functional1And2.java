@@ -1,4 +1,4 @@
-package jake;
+package jake.codingBat;
 
 import java.util.List;
 import java.util.stream.Collectors;
