@@ -19,3 +19,42 @@ FROM views
 WHERE author_id = viewer_id
 ORDER BY author_id;
 
+1683
+SELECT tweet_id
+FROM tweets
+WHERE LENGTH(content) > 15;
+
+1378
+SELECT unique_id, name
+FROM employees
+FULL JOIN employeeuni ON employees.id = employeeuni.id
+WHERE name IS NOT NULL;
+
+1068
+SELECT product.product_name, sales.year, sales.price
+FROM sales
+JOIN product ON sales.product_id = product.product_id;
+
+1581 - pro solution w/ case when...
+SELECT v.customer_id,
+SUM(CASE WHEN t.visit_id IS NULL THEN 1 ELSE 0 END) as count_no_trans
+FROM visits v
+LEFT JOIN transactions t
+    ON v.visit_id = t.visit_id
+GROUP BY v.customer_id
+HAVING SUM(CASE WHEN t.visit_id IS NULL THEN 1 ELSE 0 END) > 0;
+
+1581 - normal solution
+SELECT v.customer_id, COUNT(*) AS count_no_trans
+FROM visits v
+LEFT JOIN transactions t
+ON v.visit_id = t.visit_id
+WHERE t.visit_id IS NULL
+GROUP BY v.customer_id;
+
+197
+SELECT w2.id
+FROM weather w1
+JOIN weather w2
+    ON w1.recordDate = w2.recordDate - INTERVAL '1 day'
+WHERE w1.temperature < w2.temperature;
