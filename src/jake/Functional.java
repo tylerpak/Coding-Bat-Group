@@ -3,7 +3,7 @@ package jake;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class JakeFunctional {
+public class Functional {
     // Given a list of integers, return a list where each integer is multiplied by 2.
     public static List<Integer> doubling(List<Integer> nums) {
         return nums.stream().map( (integer -> integer * 2)).collect(Collectors.toList());
