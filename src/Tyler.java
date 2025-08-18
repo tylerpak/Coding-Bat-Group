@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
     public static void main(String[] args) {
-        System.out.println(countHi("xxhixx"));
+        System.out.println(changeXY("xxhixx"));
 
     }
 
@@ -602,19 +602,54 @@ public class Tyler {
     }
 
     public static String changeXY(String str) {
-        String output = "";
-        if(str.isEmpty()) {
-            return output;
+        return changeXYHelper(str, 0);
+    }
+
+    public static String changeXYHelper(String str, int index) {
+        StringBuilder strB = new StringBuilder(str);
+        if(index == str.length()) {
+            return strB.toString();
         }
-        else if(str.startsWith("x")) {
-            output += 'y';
-            return changeXY(str.substring(1));
+        else if(strB.charAt(index) == 'x') {
+            strB.replace(index, index+1, "y");
+        }
+        return changeXYHelper(strB.toString(), index + 1);
+    }
+
+    public static String changePi(String str) {
+        if(str.isEmpty()) {
+            return "";
+        }
+        else if(str.startsWith("pi")) {
+            return "3.14" + changePi(str.substring(2));
         }
         else {
-            output += str.charAt(0);
-            return changeXY(str.substring(1));
+            return str.charAt(0) + changePi(str.substring(1));
         }
     }
 
+    public static String noX(String str) {
+        if(str.isEmpty()) {
+            return "";
+        }
+        else if(str.startsWith("x")) {
+            return noX(str.substring(1));
+        }
+        else {
+            return str.charAt(0) + noX(str.substring(1));
+        }
+    }
+
+    public static boolean array6(int[] nums, int index) {
+        if(index == nums.length) {
+            return false;
+        }
+        else if(nums[index] == 6) {
+            return true;
+        }
+        else {
+            return array6(nums, index + 1);
+        }
+    }
 
 }
