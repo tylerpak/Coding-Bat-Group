@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
     public static void main(String[] args) {
-        System.out.println(changeXY("xxhixx"));
+        System.out.println(stringClean("yyzzza"));
 
     }
 
@@ -651,5 +651,189 @@ public class Tyler {
             return array6(nums, index + 1);
         }
     }
+
+    public static int array11(int[] nums, int index) {
+        if(index > nums.length -1) {
+            return 0;
+        }
+        else if(nums[index] == 11) {
+            return 1 + array11(nums, index + 1);
+        }
+        return array11(nums, index + 1);
+    }
+
+    public boolean array220(int[] nums, int index) {
+        if(index > nums.length - 1) {
+            return false;
+        }
+        else if(index < 1) {
+            return array220(nums, index + 1);
+        }
+
+        else if(nums[index] == (nums[index-1] * 10)) {
+            return true;
+        }
+        return array220(nums, index + 1);
+    }
+
+    public static String allStar(String str) {
+        if(str.length() == 1) {
+            return str;
+        }
+        else if(str.isEmpty()) {
+            return "";
+        }
+        else {
+            return str.charAt(0) + "*" +  allStar(str.substring(1));
+        }
+    }
+
+    public static String pairStar(String str) {
+        if(str.isEmpty()) {
+            return "";
+        }
+        else if(str.length() == 1) {
+            return str;
+        }
+        else if(str.charAt(0) == str.charAt(1)) {
+            return str.charAt(0) + "*" + pairStar(str.substring(1));
+        }
+        else {
+            return str.charAt(0) + pairStar(str.substring(1));
+        }
+    }
+
+    public static String endX(String str) {
+        if(str.isEmpty()) {
+            return "";
+        }
+        else if(str.charAt(0) == 'x') {
+            return endX(str.substring(1)) + "x";
+        }
+        else {
+            return str.charAt(0) + endX(str.substring(1));
+        }
+    }
+
+    public static int countPairs(String str) {
+        if(str.length() <= 2) {
+            return 0;
+        }
+        else if(str.charAt(0) == str.charAt(2)) {
+            return 1 + countPairs(str.substring(1));
+        }
+        else {
+            return countPairs(str.substring(1));
+        }
+    }
+
+    public static int countAbc(String str) {
+        if(str.length() <= 2) {
+            return 0;
+        }
+        else if((str.startsWith("aba")) || (str.startsWith("abc"))) {
+            return 1 + countAbc(str.substring(1));
+        }
+        else {
+            return countAbc(str.substring(1));
+        }
+    }
+
+    public static int count11(String str) {
+        if(str.length() < 2) {
+            return 0;
+        }
+        else if(str.startsWith("11")) {
+            return 1 + count11(str.substring(2));
+        }
+        else {
+            return count11(str.substring(1));
+        }
+    }
+
+    public static String stringClean(String str) {
+        if(str.isEmpty()) {
+            return "";
+        }
+        else if(str.length()==1) {
+            return str;
+        }
+        else if(str.charAt(0) == str.charAt(1)) {
+            return stringClean(str.substring(1));
+        }
+        else {
+            return str.charAt(0) + stringClean(str.substring(1));
+        }
+    }
+
+    public static int countHi2(String str) {
+        if(str.isEmpty()) {
+            return 0;
+        }
+        else if(str.startsWith("xhi")) {
+            return countHi2(str.substring(3));
+        }
+        else if(str.startsWith("hi")) {
+            return 1 + countHi2(str.substring(1));
+        }
+        else {
+            return countHi2(str.substring(1));
+        }
+    }
+
+    public static String parenBit(String str) {
+        if(str.startsWith(")")) {
+            return ")";
+        }
+        else if(str.contains("(")) {
+            return "(" + parenBit(str.substring(str.indexOf("(") + 1));
+        }
+        else {
+            return str.charAt(0) + parenBit(str.substring(1));
+        }
+    }
+
+    public static boolean nestParen(String str) {
+        if(str.isEmpty()) {
+            return true;
+        }
+        else if(str.startsWith("(") && (str.endsWith(")"))) {
+            return nestParen(str.substring(1, str.length() - 1));
+        }
+        else {
+            return false;
+        }
+    }
+
+    public static int strCount(String str, String sub) {
+        if(str.isEmpty()) {
+            return 0;
+        }
+        else if(str.equals(sub)) {
+            return 1;
+        }
+        else if(str.startsWith(sub)) {
+            return 1 + strCount(str.substring(sub.length()), sub);
+        }
+        else {
+            return strCount(str.substring(1), sub);
+        }
+    }
+
+    public static boolean strCopies(String str, String sub, int n) {
+        if(n == 0) {
+            return true;
+        }
+        else if (str.isEmpty()) {
+            return false;
+        }
+        else if(str.startsWith(sub)) {
+            return strCopies(str.substring(1), sub, n - 1);
+        }
+        else {
+            return strCopies(str.substring(1), sub, n);
+        }
+    }
+
 
 }
