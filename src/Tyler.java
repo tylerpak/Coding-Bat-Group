@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Tyler {
     public static void main(String[] args) {
-        System.out.println(strDist("xyx", "z"));
+        System.out.println(groupSumClump(0,new int[]{2, 4, 4, 8}, 14));
 
     }
 
@@ -873,16 +873,67 @@ public class Tyler {
     }
 
     public static boolean groupSum6(int start, int[] nums, int target) {
+        if(start >= nums.length) {
+            if(target == 0) {
+                return true;
+            }
+            return false;
+        }
+        if(nums[start] == 6) {
+            return groupSum6(start + 1, nums, target - nums[start]);
+        }
+        return groupSum6(start + 1, nums, target - nums[start]) || groupSum6(start + 1, nums, target);
+    }
+
+    public static boolean groupNoAdj(int start, int[] nums, int target) {
         if(target == 0) {
             return true;
         }
         else if(start >= nums.length) {
             return false;
         }
-        if(nums[start] == 6) {
-            groupSum6(start + 1, nums, target - nums[start]);
-        }
-        return groupSum6(start + 1, nums, target - nums[start]) || groupSum6(start + 1, nums, target);
+        return groupNoAdj(start + 2, nums, target - nums[start]) || groupNoAdj(start + 1, nums, target);
     }
+
+    public static boolean groupSum5(int start, int[] nums, int target) {
+        if(start >= nums.length) {
+            if(target == 0) {
+                return true;
+            }
+            return false;
+        }
+        if(nums[start] % 5 == 0) {
+            return groupSum5(start + 1, nums, target - nums[start]);
+        }
+        if((start > 0) && (nums[start] == 1)) {
+            return groupSum5(start + 1, nums, target);
+        }
+        return groupSum5(start + 1, nums, target - nums[start]) || groupSum5(start + 1, nums, target);
+    }
+
+    public static boolean groupSumClump(int start, int[] nums, int target) {
+        if(start >= nums.length) {
+            if(target == 0) {
+                return true;
+            }
+            return false;
+        }
+        int count = 1;
+        while(start < nums.length - 1) {
+            if(nums[start+1] == nums[start]) {
+                count++;
+            }
+            else {
+                break;
+            }
+            start++;
+        }
+        if(count > 1) {
+            return groupSumClump(start + 1, nums, target) || groupSumClump(start + 1, nums, target - (nums[start-1] * count));
+        }
+        return groupSumClump(start + 1, nums, target - nums[start]) || groupSumClump(start + 1, nums, target);
+    }
+
+
 
 }
