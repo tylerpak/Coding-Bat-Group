@@ -112,4 +112,40 @@ public class String1 {
         String lastTwo = str.substring(str.length() - 2);
         return lastTwo.equalsIgnoreCase("ly");
     }
+
+    static String nTwice(String str, int n) {
+        String firstHalf = str.substring(0, n - 1);
+        String secondHalf =str.substring(str.length() - n);
+
+        return firstHalf + secondHalf;
+    }
+
+    static String twoChar(String str, int index) {
+        if (str.isEmpty()) return "";
+        if (index >= str.length() - 1 || index < 0) return str.substring(0,2);
+
+        return str.substring(index, index+2);
+    }
+
+    static String middleThree(String str) {
+        if (str.length() <= 3) return str;
+
+        int middleIndex = str.length() / 2;
+
+        return str.substring(middleIndex - 1, middleIndex + 2);
+    }
+
+    static boolean hasBad(String str) {
+
+        if (str.length() < 3) return false;
+        if (str.length() == 3) {
+            return str.equalsIgnoreCase("bad");
+        }
+
+        String firstChunk = str.substring(0, 4);
+        return (firstChunk.toLowerCase().contains("bad"));
+
+
+
+    }
 }
