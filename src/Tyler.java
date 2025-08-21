@@ -934,6 +934,22 @@ public class Tyler {
         return groupSumClump(start + 1, nums, target - nums[start]) || groupSumClump(start + 1, nums, target);
     }
 
+    public static boolean splitArray(int[] nums) {
+        return splitArrayHelper(0, 0, nums, 0);
+    }
+
+    public static boolean splitArrayHelper(int sumA, int sumB, int[] nums, int index) {
+        if(index >= nums.length) {
+            if(sumA == sumB) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        return splitArrayHelper(sumA + nums[index], sumB, nums, index + 1) || splitArrayHelper(sumA, sumB + nums[index], nums, index + 1);
+    }
+
 
 
 }
