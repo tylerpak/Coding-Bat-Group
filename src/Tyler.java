@@ -950,6 +950,20 @@ public class Tyler {
         return splitArrayHelper(sumA + nums[index], sumB, nums, index + 1) || splitArrayHelper(sumA, sumB + nums[index], nums, index + 1);
     }
 
+    public static boolean splitOdd10(int[] nums) {
+        return splitOdd10Helper(0, 0, nums, 0);
+    }
 
+    public static boolean splitOdd10Helper(int sumA, int sumB, int[] nums, int index) {
+        if(index >= nums.length) {
+            if((sumA % 10 == 0) && (sumB % 2 == 0)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        return splitOdd10Helper(sumA + nums[index], sumB, nums, index + 1) || splitOdd10Helper(sumA, sumB + nums[index], nums, index + 1);
+    }
 
 }
